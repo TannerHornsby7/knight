@@ -7,7 +7,7 @@ import './board.scss';
 import Square from './square';
 
 export default function Board(props) {
-    const {start, stop, current} = props;
+    const {start, stop} = props;
     // create a chessboard using squares
     const board = [];
     // loop through the rows
@@ -16,21 +16,31 @@ export default function Board(props) {
         const row = [];
         // loop through the columns
         for (let j = 0; j < 8; j++) {
+            let id = String(i) + ' ' + String(j);
             // determine the color of the square
             const color = (i + j) % 2;
             // determine the border of the square
+            let type = 'none'
             let border = 0;
-            if (i === start[0] && j === start[1]) {
+            let text = '';
+            if (i === parseInt(start[0]) && j === parseInt(start[2])) {
                 border = 1;
-            } else if (i === stop[0] && j === stop[1]) {
+                type = 'start'
+                text = 'START'
+            } else if (i === parseInt(stop[0]) && j === parseInt(stop[2])) {
                 border = 2;
-            } else if (i === current[0] && j === current[1]) {
-                border = 3;
+                type = 'stop'
+                text = 'STOP'
+
             }
+            // } else if (i === parseInt(current[0]) && j === parseInt(current[2])) {
+            //     border = 3;
+            //     id = 'current'
+            // }
             // determine if the knight is in the square
-            const knight = i === current[0] && j === current[1];
+            // const knight = i === current[0] && j === current[1];
             // create the square
-            const square = <Square color={color} border={border} knight={knight} />;
+            const square = <Square text={text} type={type} key={id} id={id} color={color} border={border} knight={false} />;
             // add the square to the row
             row.push(square);
         }

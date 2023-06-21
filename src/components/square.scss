@@ -1,5 +1,7 @@
 // make the squares a standard size and give them a border
+// make them borderboxes and make sure the border doesn't change their height/width
 .square {
+    box-sizing: border-box;
     width: min(8vw, 8vh);
     height: min(8vw, 8vh);
     border: 1px solid black;

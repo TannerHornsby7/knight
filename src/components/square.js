@@ -6,11 +6,11 @@
 
 import React from "react";
 import "./square.scss";
-import knight_img from "https://w1.pngwing.com/pngs/717/864/png-transparent-knight-chess-chess-piece-queen-pawn-bishop-and-knight-checkmate-white-and-black-in-chess-rook.png";
+// import knight_img from "https://w1.pngwing.com/pngs/717/864/png-transparent-knight-chess-chess-piece-queen-pawn-bishop-and-knight-checkmate-white-and-black-in-chess-rook.png";
 
 export default function Square(props) {
   // get the props
-  const { color, border, knight } = props;
+  const { color, border, knight, id, type, text } = props;
   // set the background color
   const backgroundColor = color === 0 ? "white" : "black";
   // set the border color
@@ -25,14 +25,16 @@ export default function Square(props) {
   // return the square
   return (
     <div
-      className="square"
+      id={id}
+      className={`square ${type}`}
       style={{ backgroundColor: backgroundColor, borderColor: borderColor, borderWidth: "3px" }}
       // put the knight in the square if the knight prop is non empty
       // otherwise put nothing in the square
     >
       {knight ? (
-        <img alt="knight" src={knight_img} className="knight"></img>
+        <img alt="knight" className="knight"></img>
       ) : null}
+      {text}
     </div>
   );
 }
