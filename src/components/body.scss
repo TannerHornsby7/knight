@@ -1,0 +1,11 @@
+// make the body a flexible container with a poker green background
+// and three buttons on the bottom right
+.body {
+    display: flex;
+    flex-direction: column;
+    background-color: #236106;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 5rem;
+}

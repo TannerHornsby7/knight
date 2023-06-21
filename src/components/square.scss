@@ -1,0 +1,6 @@
+// make the squares a standard size and give them a border
+.square {
+    width: min(8vw, 8vh);
+    height: min(8vw, 8vh);
+    border: 1px solid black;
+}

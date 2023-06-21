@@ -1,0 +1,11 @@
+// make the board an 8x8 grid of squares
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    border:5px solid #993f1e;
+    box-sizing: border-box;
+}
